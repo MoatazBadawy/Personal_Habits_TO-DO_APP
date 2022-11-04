@@ -13,7 +13,7 @@ interface HabitsDao {
     suspend fun insertHabit(habitEntity: HabitEntity)
 
     @Query("SELECT * FROM HABIT_TABLE WHERE type = :type ORDER BY isCompleted ASC")
-    fun getAllHabitsByTypeASC(type: String): Flow<List<HabitEntity>>
+    fun getAllHabitsByType(type: String): Flow<List<HabitEntity>>
 
     @Query("UPDATE HABIT_TABLE SET isCompleted = :isCompleted WHERE habitId = :habitId")
     suspend fun updateHabitByCompleted(habitId: Long, isCompleted: Boolean)
